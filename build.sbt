@@ -18,8 +18,6 @@ name := "scrand"
 
 organization := "com.github.mkroli"
 
-version := "0.1-SNAPSHOT"
-
 scalaVersion := "2.11.8"
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-target:jvm-1.6")
@@ -28,3 +26,5 @@ libraryDependencies ++= Seq(
   "com.chuusai" %% "shapeless" % "2.3.0",
   "org.scalatest" %% "scalatest" % "2.2.6" % "test"
 )
+
+publishMavenStyle := true
