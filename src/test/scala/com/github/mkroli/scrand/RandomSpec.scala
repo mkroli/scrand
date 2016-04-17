@@ -68,11 +68,15 @@ class RandomSpec extends WordSpec {
       }
 
       "create random Option" in {
-        assert(Random[Option[Int]].isInstanceOf[Option[Int]])
+        val s = Stream.fill(1000)(Random[Option[Int]])
+        assert(s.find(_.isInstanceOf[Some[Int]]).isDefined)
+        assert(s.find(_ == None).isDefined)
       }
 
       "create random Either" in {
-        assert(Random[Either[Int, Long]].isInstanceOf[Either[Int, Long]])
+        val s = Stream.fill(1000)(Random[Either[Int, Long]])
+        assert(s.find(_.isInstanceOf[Left[Int, Long]]).isDefined)
+        assert(s.find(_.isInstanceOf[Right[Int, Long]]).isDefined)
       }
 
       "create random Future" in {
@@ -225,6 +229,20 @@ class RandomSpec extends WordSpec {
           assert(rand.isInstanceOf[Map[Int, Int]])
           assert(rand.size <= maxCollectionSize)
         }
+      }
+    }
+
+    "PrintableChars is imported" must {
+      import PrintableChars._
+
+      "create only printable Chars" in {
+        val l = List.fill(1000)(Random[Char])
+        assert(l.forall(33 to 126 contains _))
+      }
+
+      "create Strings only containing printable Chars" in {
+        val l = List.fill(100)(Random[String]).flatten
+        assert(l.forall(33 to 126 contains _))
       }
     }
   }
