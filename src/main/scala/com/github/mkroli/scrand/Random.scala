@@ -102,8 +102,6 @@ object RandomGenerator {
     override def rand(settings: Random) = gen.from(l.rand(settings))
   }
 
-  def apply[T: RandomGenerator] = implicitly[RandomGenerator[T]].rand(Random(maxCollectionSize = 10))
-
   def apply[T: RandomGenerator](randomSettings: Random) = implicitly[RandomGenerator[T]].rand(randomSettings)
 }
 
