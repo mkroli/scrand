@@ -25,15 +25,15 @@ scala> import com.github.mkroli.scrand._
 scala> Random[Int]
 res0: Int = 12345
 
-Random[Either[Int, Boolean]]
+scala> Random[Either[Int, Boolean]]
 res1: Either[Int,Boolean] = Right(false)
 
-Random[(Int, Option[(Int, Int)])]
+scala> Random[(Int, Option[(Int, Int)])]
 res2: (Int, Option[(Int, Int)]) = (12345,Some((12345,12345)))
 
-case class Inner(i: Int)
-case class Outer(b: Boolean, i: Inner)
-Random[Outer]
+scala> case class Inner(i: Int)
+scala> case class Outer(b: Boolean, i: Inner)
+scala> Random[Outer]
 res3: Outer = Outer(true,Inner(12345))
 ```
 For more examples see [src/test/scala/.../RandomSpec.scala](https://github.com/mkroli/scrand/blob/master/src/test/scala/com/github/mkroli/scrand/RandomSpec.scala).
