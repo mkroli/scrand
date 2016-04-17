@@ -1,0 +1,10 @@
+sudo: false
+language: scala
+jdk:
+  - oraclejdk8
+before_script:
+  - echo -e 'addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.3.5")\n\naddSbtPlugin("org.scoverage" % "sbt-coveralls" % "1.1.0")' > project/tmpCoverage.sbt
+script:
+  - sbt clean coverage test
+after_success:
+  - sbt coverageReport coveralls
