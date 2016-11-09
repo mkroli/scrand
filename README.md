@@ -13,7 +13,7 @@ Usage
 ```scala
 resolvers += "bintray" at "http://dl.bintray.com/mkroli/maven"
 
-libraryDependencies += "com.github.mkroli" %% "scrand" % "0.1"
+libraryDependencies += "com.github.mkroli" %% "scrand" % "0.2"
 ```
 
 Examples
