@@ -18,9 +18,19 @@ name := "scrand"
 
 organization := "com.github.mkroli"
 
-scalaVersion := "2.11.8"
+crossScalaVersions := "2.12.0" :: "2.11.8" :: "2.10.6" :: Nil
 
-scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation", "-target:jvm-1.6")
+scalaVersion := crossScalaVersions.value.head
+
+scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation") ++ (CrossVersion.partialVersion(scalaVersion.value) match {
+  case Some((2, 12)) => Seq("-target:jvm-1.8")
+  case _ => Seq("-target:jvm-1.6")
+})
+
+libraryDependencies ++= (CrossVersion.partialVersion(scalaVersion.value) match {
+  case Some((2, 10)) => Seq(compilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full))
+  case _ => Seq.empty
+})
 
 libraryDependencies ++= Seq(
   "com.chuusai" %% "shapeless" % "2.3.2",
