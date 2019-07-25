@@ -45,3 +45,5 @@ Seq(Compile, Test).map { scope =>
     case _ => "scala_2.12"
   })
 }
+
+releaseCrossBuild := true
