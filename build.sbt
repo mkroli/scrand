@@ -18,12 +18,12 @@ name := "scrand"
 
 organization := "com.github.mkroli"
 
-crossScalaVersions := "2.12.0" :: "2.11.8" :: "2.10.6" :: Nil
+crossScalaVersions := "2.13.0" :: "2.12.8" :: "2.11.12" :: "2.10.7" :: Nil
 
 scalaVersion := crossScalaVersions.value.head
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation") ++ (CrossVersion.partialVersion(scalaVersion.value) match {
-  case Some((2, 12)) => Seq("-target:jvm-1.8")
+  case Some((2, minor)) if minor >= 12 => Seq("-target:jvm-1.8")
   case _ => Seq("-target:jvm-1.6")
 })
 
@@ -33,8 +33,15 @@ libraryDependencies ++= (CrossVersion.partialVersion(scalaVersion.value) match {
 })
 
 libraryDependencies ++= Seq(
-  "com.chuusai" %% "shapeless" % "2.3.2",
-  "org.scalatest" %% "scalatest" % "3.0.0" % "test"
+  "com.chuusai" %% "shapeless" % "2.3.3",
+  "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 )
 
 publishMavenStyle := true
+
+Seq(Compile, Test).map { scope =>
+  unmanagedSourceDirectories in scope += (sourceDirectory in scope).value / (CrossVersion.partialVersion(scalaVersion.value) match {
+    case Some((2, 13)) => "scala_2.13"
+    case _ => "scala_2.12"
+  })
+}

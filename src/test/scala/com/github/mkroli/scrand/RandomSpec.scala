@@ -67,18 +67,6 @@ class RandomSpec extends WordSpec {
         assert(Random[String].getClass === classOf[String])
       }
 
-      "create random Option" in {
-        val s = Stream.fill(1000)(Random[Option[Int]])
-        assert(s.find(_.isInstanceOf[Some[Int]]).isDefined)
-        assert(s.find(_ == None).isDefined)
-      }
-
-      "create random Either" in {
-        val s = Stream.fill(1000)(Random[Either[Int, Long]])
-        assert(s.find(_.isInstanceOf[Left[Int, Long]]).isDefined)
-        assert(s.find(_.isInstanceOf[Right[Int, Long]]).isDefined)
-      }
-
       "create random Future" in {
         import scala.concurrent.ExecutionContext.Implicits._
         assert(Random[Future[Int]].isInstanceOf[Future[Int]])
@@ -90,10 +78,6 @@ class RandomSpec extends WordSpec {
         assert(Random[Set[Int]].isInstanceOf[Set[Int]])
         assert(Random[Vector[Int]].isInstanceOf[Vector[Int]])
         assert(Random[Array[Int]].isInstanceOf[Array[Int]])
-      }
-
-      "create random Stream" in {
-        assert(Random[Stream[Int]].isInstanceOf[Stream[Int]])
       }
 
       "create random Map" in {
@@ -215,12 +199,6 @@ class RandomSpec extends WordSpec {
           assert(rand.isInstanceOf[List[Int]])
           assert(rand.size <= maxCollectionSize)
         }
-      }
-
-      "create infinite Stream (> maxCollectionSize)" in {
-        val rand = Random(maxCollectionSize = maxCollectionSize)[Stream[Int]]
-        assert(rand.isInstanceOf[Stream[Int]])
-        assert(rand.take(maxCollectionSize + 1).size === (maxCollectionSize + 1))
       }
 
       "create random Map" in {
