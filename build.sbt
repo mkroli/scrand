@@ -47,3 +47,10 @@ Seq(Compile, Test).map { scope =>
 }
 
 releaseCrossBuild := true
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/mkroli/scrand"),
+    "scm:git:git@github.com:mkroli/scrand.git"
+  )
+)
