@@ -97,16 +97,46 @@ class RandomSpec extends WordSpec {
         assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
         assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
         assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
-        assert(Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)].isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)])
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
+        assert(
+          Random[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+            .isInstanceOf[(Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int, Int)]
+        )
       }
 
       "create random case class" in {
@@ -161,29 +191,152 @@ class RandomSpec extends WordSpec {
         case class Test17(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int)
         assert(Random[Test17].getClass === classOf[Test17])
 
-        case class Test18(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int)
+        case class Test18(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int
+        )
         assert(Random[Test18].getClass === classOf[Test18])
 
-        case class Test19(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int, r: Int)
+        case class Test19(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int,
+            r: Int
+        )
         assert(Random[Test19].getClass === classOf[Test19])
 
-        case class Test20(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int, r: Int, s: Int)
+        case class Test20(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int,
+            r: Int,
+            s: Int
+        )
         assert(Random[Test20].getClass === classOf[Test20])
 
-        case class Test21(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int, r: Int, s: Int, t: Int)
+        case class Test21(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int,
+            r: Int,
+            s: Int,
+            t: Int
+        )
         assert(Random[Test21].getClass === classOf[Test21])
 
-        case class Test22(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int, r: Int, s: Int, t: Int, u: Int)
+        case class Test22(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int,
+            r: Int,
+            s: Int,
+            t: Int,
+            u: Int
+        )
         assert(Random[Test22].getClass === classOf[Test22])
 
-        case class Test23(a: Int, b: Int, c: Int, d: Int, e: Int, f: Int, g: Int, h: Int, i: Int, j: Int, k: Int, l: Int, m: Int, n: Int, o: Int, p: Int, q: Int, r: Int, s: Int, t: Int, u: Int, v: Int)
+        case class Test23(
+            a: Int,
+            b: Int,
+            c: Int,
+            d: Int,
+            e: Int,
+            f: Int,
+            g: Int,
+            h: Int,
+            i: Int,
+            j: Int,
+            k: Int,
+            l: Int,
+            m: Int,
+            n: Int,
+            o: Int,
+            p: Int,
+            q: Int,
+            r: Int,
+            s: Int,
+            t: Int,
+            u: Int,
+            v: Int
+        )
         assert(Random[Test23].getClass === classOf[Test23])
       }
     }
 
     "maxCollectionSize configured" must {
       val maxCollectionSize = 5
-      val iterations = 1000
+      val iterations        = 1000
 
       "create random String" in {
         (1 to iterations).foreach { _ =>

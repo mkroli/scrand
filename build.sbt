@@ -24,16 +24,16 @@ scalaVersion := crossScalaVersions.value.head
 
 scalacOptions ++= Seq("-feature", "-unchecked", "-deprecation") ++ (CrossVersion.partialVersion(scalaVersion.value) match {
   case Some((2, minor)) if minor >= 12 => Seq("-target:jvm-1.8")
-  case _ => Seq("-target:jvm-1.6")
+  case _                               => Seq("-target:jvm-1.6")
 })
 
 libraryDependencies ++= (CrossVersion.partialVersion(scalaVersion.value) match {
   case Some((2, 10)) => Seq(compilerPlugin("org.scalamacros" % "paradise" % "2.1.0" cross CrossVersion.full))
-  case _ => Seq.empty
+  case _             => Seq.empty
 })
 
 libraryDependencies ++= Seq(
-  "com.chuusai" %% "shapeless" % "2.3.3",
+  "com.chuusai"   %% "shapeless" % "2.3.3",
   "org.scalatest" %% "scalatest" % "3.0.8" % "test"
 )
 
@@ -42,7 +42,7 @@ publishMavenStyle := true
 Seq(Compile, Test).map { scope =>
   unmanagedSourceDirectories in scope += (sourceDirectory in scope).value / (CrossVersion.partialVersion(scalaVersion.value) match {
     case Some((2, 13)) => "scala_2.13"
-    case _ => "scala_2.12"
+    case _             => "scala_2.12"
   })
 }
 

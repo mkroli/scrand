@@ -40,7 +40,7 @@ class RandomCollectionsSpec extends WordSpec {
 
     "maxCollectionSize configured" must {
       val maxCollectionSize = 5
-      val iterations = 1000
+      val iterations        = 1000
 
       "create infinite LazyList (> maxCollectionSize)" in {
         val rand = Random(maxCollectionSize = maxCollectionSize)[LazyList[Int]]

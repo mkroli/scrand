@@ -76,9 +76,10 @@ object RandomGenerator extends RandomCollections {
 
   implicit def randomHNil: RandomGenerator[HNil] = random(_ => HNil)
 
-  implicit def randomHList[H, T <: HList](implicit h: Lazy[RandomGenerator[H]], t: Lazy[RandomGenerator[T]]): RandomGenerator[H :: T] = new RandomGenerator[H :: T] {
-    override def rand(settings: Random) = h.value.rand(settings) :: t.value.rand(settings)
-  }
+  implicit def randomHList[H, T <: HList](implicit h: Lazy[RandomGenerator[H]], t: Lazy[RandomGenerator[T]]): RandomGenerator[H :: T] =
+    new RandomGenerator[H :: T] {
+      override def rand(settings: Random) = h.value.rand(settings) :: t.value.rand(settings)
+    }
 
   implicit def randomGeneric[T, L <: HList](implicit gen: Generic.Aux[T, L], l: RandomGenerator[L]): RandomGenerator[T] = new RandomGenerator[T] {
     override def rand(settings: Random) = gen.from(l.rand(settings))
@@ -90,5 +91,6 @@ object RandomGenerator extends RandomCollections {
 object PrintableChars {
   implicit def randomChar = random(_ => scala.util.Random.nextPrintableChar)
 
-  implicit def randomString = random(settings => (1 to scala.util.Random.nextInt(settings.maxCollectionSize)).map(_ => scala.util.Random.nextPrintableChar()).mkString)
+  implicit def randomString =
+    random(settings => (1 to scala.util.Random.nextInt(settings.maxCollectionSize)).map(_ => scala.util.Random.nextPrintableChar()).mkString)
 }
