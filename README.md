@@ -1,7 +1,7 @@
 scrand
 ======
 
-[![Build Status](https://travis-ci.org/mkroli/scrand.svg?branch=master)](https://travis-ci.org/mkroli/scrand)
+[![Build Status](https://cloud.drone.io/api/badges/mkroli/scrand/status.svg)](https://cloud.drone.io/mkroli/scrand)
 [![Coverage Status](https://coveralls.io/repos/github/mkroli/scrand/badge.svg?branch=master)](https://coveralls.io/github/mkroli/scrand?branch=master)
 
 scrand (SCala-RANDom) generates random instances of various types of Scala classes.
