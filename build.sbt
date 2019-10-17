@@ -18,7 +18,7 @@ name := "scrand"
 
 organization := "com.github.mkroli"
 
-crossScalaVersions := "2.13.0" :: "2.12.8" :: "2.11.12" :: "2.10.7" :: Nil
+crossScalaVersions := "2.13.0" :: "2.12.10" :: "2.11.12" :: "2.10.7" :: Nil
 
 scalaVersion := crossScalaVersions.value.head
 
